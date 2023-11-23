@@ -16,10 +16,17 @@
       .then(result => {
         // This is the visitor identifier:
         console.log(result)
-        document.getElementById('test').innerText = 'YOU HAVE BEEN HACKED NICE!'
+        document.getElementById('test').innerText = JSON.stringify(result)
       })
       .catch(error => console.error(error))
   </script>
+
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
     <p id="test"></p>
