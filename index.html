@@ -16,7 +16,7 @@
       .then(result => {
         // This is the visitor identifier:
         console.log(result)
-        document.getElementById('test').innerText = JSON.stringify(result)
+        document.getElementById('test').innerText = JSON.stringify(result, null, '\t')
       })
       .catch(error => console.error(error))
   </script>
