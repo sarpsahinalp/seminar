@@ -7,18 +7,18 @@
 
   <script>
     // Initialize the agent at application startup.
-    // Some ad blockers or browsers will block Fingerprint CDN URL.
-    // To fix this, please use the NPM package instead.
-    const fpPromise = import('https://fpjscdn.net/v3/RUdyGNiTzRvIqJqHZOxf')
-      .then(FingerprintJS => FingerprintJS.load());
+    const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4')
+      .then(FingerprintJS => FingerprintJS.load())
   
     // Get the visitor identifier when you need it.
     fpPromise
       .then(fp => fp.get())
       .then(result => {
+        // This is the visitor identifier:
         console.log(result)
-        document.getElementById('test').innerText = result.visitorId
-      });
+        document.getElementById('test').innerText = 'YOU HAVE BEEN HACKED NICE!'
+      })
+      .catch(error => console.error(error))
   </script>
 </head>
 <body>
