@@ -15,7 +15,10 @@
     // Get the visitor identifier when you need it.
     fpPromise
       .then(fp => fp.get())
-      .then(result => document.getElementById('test').innerText = result.visitorId);
+      .then(result => {
+        console.log(result)
+        document.getElementById('test').innerText = result.visitorId
+      });
   </script>
 </head>
 <body>
