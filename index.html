@@ -26,18 +26,19 @@
       region: "eu"
     }))
   
-    let visitorId
-  // Get the visitorId when you need it.
-  fpPromise2
-    .then(fp => fp.get())
-    .then(result => {
-      visitorId = result.visitorId
-    })
+    let visitorId = null;
+    // Get the visitorId when you need it.
+    fpPromise2
+      .then(fp => fp.get())
+      .then(result => {
+        logMovies(result)
+      })
 
-    fetch('https://eu.api.fpjs.io/visitors/h18j6yMUIbU0OJYeV9fZ?api_key=xVFJnqfARuxyOqg3rNlD')
-      .then(result => document.getElementById('test2').innerText = JSON.stringify(result, null, '\t'))
-      .then(result => console.log(result))
-
+    async function logMovies(result) {
+      const response = await fetch(`https://eu.api.fpjs.io/visitors/${result.visitorId}?api_key=xVFJnqfARuxyOqg3rNlD`);
+      const fingerprint = await response.json();
+      document.getElementById('test2').innerText = JSON.stringify(fingerprint, null, '\t')
+    }
   </script>
 
   <style>
