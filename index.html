@@ -19,6 +19,20 @@
         document.getElementById('test').innerText = JSON.stringify(result, null, '\t')
       })
       .catch(error => console.error(error))
+
+      // Initialize the agent on page load.
+    fpPromise = import('https://fpjscdn.net/v3/RUdyGNiTzRvIqJqHZOxf')
+    .then(FingerprintJS => FingerprintJS.load({
+      region: "eu"
+    }))
+
+  // Get the visitorId when you need it.
+  fpPromise
+    .then(fp => fp.get())
+    .then(result => {
+      document.getElementById('test2').innerText = JSON.stringify(result, null, '\t')
+    })
+
   </script>
 
   <style>
@@ -30,5 +44,6 @@
 </head>
 <body>
     <p id="test"></p>
+    <p id="test2"></p>
 </body>
 </html>
