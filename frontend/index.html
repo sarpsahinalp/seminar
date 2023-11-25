@@ -72,8 +72,7 @@
           .catch((error) => console.error(error));
       }
 
-      let postButton = document.getElementById("postButton");
-      postButton.onclick = postData;
+      postData();
 
       // Initialize the agent on page load.
       const fpPromise2 = import(
