@@ -3,9 +3,10 @@
   <component name="AdditionalModuleElements">
     <content url="file://$MODULE_DIR$/../../fingerprintdb/build/generated/sources/annotationProcessor/java/main">
       <sourceFolder url="file://$MODULE_DIR$/../../fingerprintdb/build/generated/sources/annotationProcessor/java/main" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../fingerprintdb/build/generated/sources/annotationProcessor/java/main" isTestSource="false" generated="true" />
     </content>
   </component>
   <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="ee8c583e-1b12-49ec-8ddf-d558011317b8" />
+    <option name="uniqueId" value="0e2709f0-798f-4828-8108-0cf78786a151" />
   </component>
 </module>
