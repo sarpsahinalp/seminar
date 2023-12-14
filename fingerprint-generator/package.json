@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "fingerprint-generator": "^2.1.43",
-    "playwright": "^1.40.0"
+    "fingerprint-injector": "^2.1.45",
+    "playwright": "^1.40.0",
+    "puppeteer": "^21.6.1"
   }
 }

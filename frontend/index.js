@@ -1,13 +1,15 @@
 let toPostData = {
     fonts: [],
     plugins: [],
-    cookieEnabled: false,
+    cookiesEnabled: false,
     platform: "",
     screenResolution: 0,
     continent: "",
     userAgent: "",
-    bot: false
+    bot: "",
 };
+
+let ready = false;
 
 function getDataFromLocalFP() {
     const fpPromise = import("https://openfpcdn.io/fingerprintjs/v4").then(
@@ -23,11 +25,13 @@ function getDataFromLocalFP() {
             // Replace this with your JSON data
             toPostData.fonts = result.components.fonts.value;
             toPostData.plugins = result.components.plugins.value.map(plugin => plugin.name);
-            toPostData.cookieEnabled = result.components.cookiesEnabled.value;
+            toPostData.cookiesEnabled = result.components.cookiesEnabled.value;
             toPostData.platform = result.components.platform.value;
             toPostData.screenResolution = result.components.screenResolution.value[0] * result.components.screenResolution.value[1];
         })
-        .catch((error) => console.error(error));
+        .then(() => {
+            getFromFP3Public();
+        }).catch((error) => console.error(error));
 }
 
 function postData(jsonData) {
@@ -81,7 +85,8 @@ function getFromFP3Public() {
                 console.log(fp)
                 toPostData.userAgent = fp.visits[0].browserDetails.userAgent;
                 toPostData.bot = fp.products.botd.data.bot.result;
-                toPostData.continent = fp.products.ipInfo.data.v4.geolocation.continent.code
+                toPostData.continent = fp.products.ipInfo.data.v4.geolocation.continent.code;
+                postData(toPostData)
             });
         });
 }
@@ -100,7 +105,6 @@ async function logFingerprints(result) {
 }
 
 getDataFromLocalFP();
-getFromFP3Public();
 
 const button = document.getElementById("postButton");
-button.onclick = () => postData(toPostData);
+button.onclick = () => console.log(toPostData);

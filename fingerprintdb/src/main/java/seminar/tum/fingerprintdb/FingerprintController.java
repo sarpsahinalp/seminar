@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/fingerprints")
-@CrossOrigin(origins = "http://127.0.0.1:8081")
+@CrossOrigin(origins = "http://127.0.0.1:3000")
 public class FingerprintController {
 
     private final FingerprintService fingerprintService;
