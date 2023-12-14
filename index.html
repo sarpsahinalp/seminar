@@ -1,110 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
-    <style>
-      body {
-        background-color: #000;
-        color: #fff;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Button with onclick event -->
-    <button type="button" class="btn btn-outline-danger" id="postButton">Click me to send your data!</button>
-    <p id="test"></p>
-    <p id="test2"></p>
+  <style>
+    body {
+      background-color: #003049;
+      color: #eae2b7;
+    }
+  </style>
+</head>
+<body>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script>
-      function postData() {
-        const fpPromise = import("https://openfpcdn.io/fingerprintjs/v4").then(
-          (FingerprintJS) => FingerprintJS.load()
-        );
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h1 style="font-family:Avenir;color:#f0f0f0">Digital Fingerprinting</h1>
+  <p style="color: #f0f0f0"> And how it can be less <i>invasive</i>...</p>
+</div>
 
-        // Get the visitor identifier when you need it.
-        fpPromise
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>What is going on today? </h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>What do we propose?</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Can you try it for yourselves?</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="./index.js"></script>
+
+<div id="cb-cookie-banner" class="alert alert-dark text-center mb-0" role="alert">
+  🍪 This website uses the proposed technique for you to try:
+  <button type="button" class="btn btn-primary btn-sm ms-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Select...
+  </button>
+
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Your Options</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group row">
+              <label class="col-sm-10" for="browserName">
+                Browser Name: Is the browser you are using, e.g. "Chrome" or "Safari"
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="browserName">
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label class="col-sm-10" for="browserVersion">
+                Browser Version: Is the version of the browser you are using
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="browserVersion">
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label class="col-sm-10" for="osName">
+                Operating System: Is the OS used by your device, e.g. "macOS"
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="osName">
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label class="col-sm-10" for="osVersion">
+                OS Version: Is the version of your OS
+              </label>
+              <input class="form-check-input" type="checkbox" value="" id="osVersion">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+  function postData() {
+    const fpPromise = import("https://openfpcdn.io/fingerprintjs/v4").then(
+            (FingerprintJS) => FingerprintJS.load()
+    );
+
+    // Get the visitor identifier when you need it.
+    fpPromise
+            .then((fp) => fp.get())
+            .then((result) => {
+              const apiEndpoint = "http://localhost:8080/api/fingerprints";
+
+              // Replace this with your JSON data
+              const jsonData = {
+                audio: result.components.audio.value,
+                fonts: result.components.fonts.value,
+                cookiesEnabled: result.components.cookiesEnabled.value,
+                platform: result.components.platform.value,
+              };
+
+              // Set the appropriate headers for JSON data
+              const headers = {
+                "Content-Type": "application/json",
+              };
+
+              // Make the POST request
+              fetch(apiEndpoint, {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(jsonData),
+              })
+                      .then((response) => {
+                        if (!response.ok) {
+                          throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+                        return response.json();
+                      })
+                      .then((data) => {
+                        console.log("POST request successful!");
+                        console.log("Response:", data);
+                      })
+                      .catch((error) => {
+                        console.error("POST request failed:", error);
+                      });
+              document.getElementById("test").innerText = JSON.stringify(
+                      result,
+                      null,
+                      "\t"
+              );
+            })
+            .catch((error) => console.error(error));
+  }
+
+  const button = document.getElementById("postButton");
+
+  button.onclick = () => postData();
+
+  // Initialize the agent on page load.
+  const fpPromise2 = import(
+          "https://fpjscdn.net/v3/i67mP4VLZDojYXgjK8xb"
+          ).then((FingerprintJS) =>
+          FingerprintJS.load({
+            region: "eu",
+          })
+  );
+
+  let visitorId = null;
+  // Get the visitorId when you need it.
+  fpPromise2
           .then((fp) => fp.get())
           .then((result) => {
-            const apiEndpoint = "http://localhost:8080/api/fingerprints";
+            logMovies(result);
+          });
 
-            // Replace this with your JSON data
-            const jsonData = {
-              audio: result.components.audio.value,
-              fonts: result.components.fonts.value,
-              cookiesEnabled: result.components.cookiesEnabled.value,
-              platform: result.components.platform.value,
-            };
-
-            // Set the appropriate headers for JSON data
-            const headers = {
-              "Content-Type": "application/json",
-            };
-
-            // Make the POST request
-            fetch(apiEndpoint, {
-              method: "POST",
-              headers: headers,
-              body: JSON.stringify(jsonData),
-            })
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-              })
-              .then((data) => {
-                console.log("POST request successful!");
-                console.log("Response:", data);
-              })
-              .catch((error) => {
-                console.error("POST request failed:", error);
-              });
-            document.getElementById("test").innerText = JSON.stringify(
-              result,
-              null,
-              "\t"
-            );
-          })
-          .catch((error) => console.error(error));
-      }
-
-      const button = document.getElementById("postButton");
-
-      button.onclick = () => postData();
-
-      // Initialize the agent on page load.
-      const fpPromise2 = import(
-        "https://fpjscdn.net/v3/i67mP4VLZDojYXgjK8xb"
-      ).then((FingerprintJS) =>
-        FingerprintJS.load({
-          region: "eu",
-        })
-      );
-
-      let visitorId = null;
-      // Get the visitorId when you need it.
-      fpPromise2
-        .then((fp) => fp.get())
-        .then((result) => {
-          logMovies(result);
-        });
-
-      async function logMovies(result) {
-        const response = await fetch(
-          `https://eu.api.fpjs.io/visitors/${result.visitorId}?api_key=qV6jTuzQLFpRAOR1u33L`
-        );
-        const fingerprint = await response.json();
-        document.getElementById("test2").innerText = JSON.stringify(
-          fingerprint,
-          null,
-          "\t"
-        );
-      }
-    </script>
-  </body>
+  async function logMovies(result) {
+    const response = await fetch(
+            `https://eu.api.fpjs.io/visitors/${result.visitorId}?api_key=qV6jTuzQLFpRAOR1u33L`
+    );
+    const fingerprint = await response.json();
+    document.getElementById("test2").innerText = JSON.stringify(
+            fingerprint,
+            null,
+            "\t"
+    );
+  }
+</script>
+</body>
 </html>
