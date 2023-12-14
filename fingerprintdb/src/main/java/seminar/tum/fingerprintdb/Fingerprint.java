@@ -33,6 +33,6 @@ public class Fingerprint {
 
     private Integer screenResolution;
 
-    private Boolean bot;
+    private String bot;
 
 }
