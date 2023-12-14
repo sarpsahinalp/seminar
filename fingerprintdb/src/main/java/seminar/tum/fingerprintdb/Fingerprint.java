@@ -17,14 +17,22 @@ public class Fingerprint {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Double audio;
-
     @ElementCollection
     private List<String> fonts;
+
+    @ElementCollection
+    private List<String> plugins;
 
     private Boolean cookiesEnabled;
 
     private String platform;
 
+    private String userAgent;
+
+    private String continent;
+
+    private Integer screenResolution;
+
+    private Boolean bot;
 
 }
