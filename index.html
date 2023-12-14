@@ -79,7 +79,7 @@
 
       // Initialize the agent on page load.
       const fpPromise2 = import(
-        "https://fpjscdn.net/v3/RUdyGNiTzRvIqJqHZOxf"
+        "https://fpjscdn.net/v3/i67mP4VLZDojYXgjK8xb"
       ).then((FingerprintJS) =>
         FingerprintJS.load({
           region: "eu",
@@ -96,7 +96,7 @@
 
       async function logMovies(result) {
         const response = await fetch(
-          `https://eu.api.fpjs.io/visitors/${result.visitorId}?api_key=xVFJnqfARuxyOqg3rNlD`
+          `https://eu.api.fpjs.io/visitors/${result.visitorId}?api_key=qV6jTuzQLFpRAOR1u33L`
         );
         const fingerprint = await response.json();
         document.getElementById("test2").innerText = JSON.stringify(
